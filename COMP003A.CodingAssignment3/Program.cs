@@ -12,14 +12,15 @@ internal class Program
         Console.WriteLine("Enter your monthly income: ");
         int monthlyIncome = int.Parse(Console.ReadLine());
         
+        
         int choice;
         int expenseAmount = 0;
         string expenseName = "";
+        string nameExp;
         
         
         do
         {
-            
             
             
             
@@ -36,6 +37,8 @@ internal class Program
             Console.WriteLine("Enter your choice: ");
             choice = int.Parse(Console.ReadLine());
 
+            
+            
             if (choice == 1)
             {
 
@@ -43,43 +46,52 @@ internal class Program
                 expenseName = Console.ReadLine();
 
                 Console.WriteLine("Enter the expense amount");
-                 expenseAmount = int.Parse(Console.ReadLine());
+                expenseAmount = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Expense added successfully!");
 
             }
 
+            
+            
             if (choice == 2)
-                {
-                    
+            {
+                
                     Console.WriteLine("Expenses: ");
-                    Console.WriteLine($" {expenseName}: {expenseAmount}");
+                    
+                    Console.WriteLine("-"+ expenseName + ": $" + expenseAmount);
                     
                     int budget = monthlyIncome - expenseAmount;
-                    Console.WriteLine($"Remaining Budget: {budget}");
-                }
+                    Console.WriteLine("Remaining Budget: $" + budget);
+            }
 
             
-
-
-
-
 
             if (choice == 3)
             {
                 Console.WriteLine("Enter the name of the expense to remove: ");
-                string removeExpense = Console.ReadLine();
-                Console.WriteLine("Expense removed successfully!");
+                string removeExp = Console.ReadLine();
+                
+                if (removeExp != expenseName)
+                {
+                    
+                    Console.WriteLine("Expense Name does not match!");
+                }
+                else Console.WriteLine("Expense removed successfully!");
+                
                 
             }
 
 
+            
             if (choice == 4)
             {
                 Console.WriteLine("Goodbye!");
             }
 
 
+            
+            
             try
             {
                 if (choice < 1 || choice > 4) throw new Exception(); 
@@ -88,6 +100,7 @@ internal class Program
             {
                 Console.WriteLine("Invalid Input, please choose 1-4!");
             }
+            
             
         } while (choice != 4);
 
