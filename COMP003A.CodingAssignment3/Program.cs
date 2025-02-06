@@ -88,15 +88,17 @@ internal class Program
             {
                 Console.WriteLine("Goodbye!");
             }
+            
+           
 
 
             
             
             try
             {
-                if (choice < 1 || choice > 4) throw new Exception(); 
+                if (choice < 1 || choice > 4); 
             }
-            catch (Exception ex)
+            catch 
             {
                 Console.WriteLine("Invalid Input, please choose 1-4!");
             }
